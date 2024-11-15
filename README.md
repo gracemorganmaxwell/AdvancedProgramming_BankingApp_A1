@@ -56,13 +56,13 @@ This document includes:
 [x] Use case scenarios demonstrating account management and transaction logging.
 
 ### Task 2 - C# Class Implementation
-[-] **Folder**: `BankingApp.Lib`
+[x] **Folder**: `BankingApp.Lib`
 
 Implementation of the UML classes in C#, focusing on:
-[-] **Inheritance and access modifiers** for encapsulation.
-[-] **Constructors** with relevant parameters for each class.
-[-] Methods for account information, balance management, and transaction details.
-[-] Adherence to **C# coding standards** and best practices, with clear documentation for each class and method.
+[x] **Inheritance and access modifiers** for encapsulation.
+[x] **Constructors** with relevant parameters for each class.
+[x] Methods for account information, balance management, and transaction details.
+[x] Adherence to **C# coding standards** and best practices, with clear documentation for each class and method.
 
 ### Task 3 - GUI Form Prototype
 [-] **Folder**: `BankingApp.GUI.cs`
@@ -80,7 +80,7 @@ A GUI prototype that integrates the account classes and provides a user interfac
 [x] **Repository**: [https://github.com/gracemorganmaxwell/C#_BankingApp_A1]
 
 All project files and documentation are organised within this private GitHub repository:
-[-] **Access**: Add the tutor as a collaborator for access.
+[x] **Access**: Add the tutor as a collaborator for access.
 [-] **Documentation**: All code and files are well-documented and organised to facilitate understanding and collaboration.
 
 ----
@@ -197,6 +197,303 @@ The following design utilises advanced object-oriented principles—**abstractio
 - **Generating a Transaction Report**:
    - Each account maintains a collection of `Transaction` objects, enabling transaction reports. The application can generate comprehensive transaction histories for each account by iterating through' Transaction' instances, supporting **encapsulation** by maintaining transaction data within the `Transaction` class.
 
+
+## Task 2: UML Class Designs Implemented
+
+The `BankingApp.Lib` namespace encapsulates the implementation of the classes outlined in the UML diagram. These classes leverage object-oriented principles to provide a modular and extensible architecture for the Bank Account Management Application. Below is the detailed implementation plan for each class.
+
+---
+
+### **Namespace**: `BankingApp.Lib`
+
+```csharp
+namespace BankingApp.Lib
+{
+    // All classes and interfaces in the library will be encapsulated within this namespace.
+}
+```
+
+---
+
+### **[1. User Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/User.cs)**
+
+```csharp
+namespace BankingApp.Lib
+{
+    using System;
+
+    // User class to handle customer and staff information
+    public class User
+    {
+        public int UserId { get; private set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public ContactDetails ContactDetails { get; private set; }
+        public string Role { get; private set; } // CUSTOMER, STAFF, or BOTH
+        private static int userCount = 0;
+
+        public User(string firstName, string lastName, DateTime dateOfBirth, ContactDetails contactDetails, string role)
+        {
+            UserId = ++userCount;
+            FirstName = firstName;
+            LastName = lastName;
+            DateOfBirth = dateOfBirth;
+            ContactDetails = contactDetails;
+            Role = role;
+        }
+
+        public float GetFeeDiscount()
+        {
+            return Role == "STAFF" || Role == "BOTH" ? 0.5f : 1.0f;
+        }
+
+        public bool IsEligibleForDiscount()
+        {
+            return Role == "STAFF" || Role == "BOTH";
+        }
+
+        public void UpdateDetails(ContactDetails newDetails)
+        {
+            ContactDetails = newDetails;
+        }
+    }
+}
+```
+
+---
+
+### **[2. ContactDetails Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/ContactDetails.cs)**
+
+```csharp
+namespace BankingApp.Lib
+{
+    public class ContactDetails
+    { 
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public ContactDetails(string address, string email, string phoneNumber)
+        {
+            Address = address;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+    }
+}
+```
+
+---
+
+### **[3. StaffDetails Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/StaffContactDetails.cs)**
+
+```csharp
+namespace BankingApp.Lib;
+
+public class StaffContactDetails : ContactDetails
+{
+    public int StaffId { get; private set; }
+    public string Department { get; set; }
+    public string Position { get; set; }
+
+    public StaffContactDetails(string address, string email, string phoneNumber, int staffId, string department, string position)
+        : base(address, email, phoneNumber)
+    {
+        StaffId = staffId;
+        Department = department;
+        Position = position;
+    }
+}
+```
+
+---
+
+### **[4. (Abstract) Account Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/Account.cs)**
+
+```csharp
+namespace BankingApp.Lib;
+
+public abstract class Account
+{
+    public int AccountId { get; private set; }
+    public float Balance { get; protected set; }
+    public float InterestRate { get; protected set; }
+    public float OverdraftLimit { get; protected set; }
+    public float FailedWithdrawalFee { get; protected set; }
+    private static int accountCount = 0;
+    protected List<Transaction> transactions;
+
+    public Account(float interestRate, float overdraftLimit, float failedWithdrawalFee)
+    {
+        AccountId = ++accountCount;
+        InterestRate = interestRate;
+        OverdraftLimit = overdraftLimit;
+        FailedWithdrawalFee = failedWithdrawalFee;
+        transactions = new List<Transaction>();
+    }
+
+    public void Deposit(float amount)
+    {
+        Balance += amount;
+        transactions.Add(new Transaction("Deposit", amount, Balance));
+    }
+
+    public abstract string Withdraw(float amount, User user);
+
+    public abstract float CalculateInterest();
+
+    public string GetLastTransaction()
+    {
+        return transactions.Count > 0 ? transactions[^1].ToString() : "No transactions available.";
+    }
+}
+```
+
+---
+
+### **[5. EverydayAccount Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/EverydayAccount.cs)**
+
+```csharp
+namespace BankingApp.Lib
+{
+    public class EverydayAccount : Account
+    {
+        public EverydayAccount() : base(interestRate: 0, overdraftLimit: 0, failedWithdrawalFee: 0) {}
+
+        public void Deposit(float amount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string Withdraw(float amount, User user)
+        {
+            if (amount > Balance)
+            {
+                return "Withdrawal failed: Insufficient funds.";
+            }
+            Balance -= amount;
+            transactions.Add(new Transaction("Withdrawal", -amount, Balance));
+            return $"Withdrawal successful. New balance: {Balance}";
+        }
+
+        public override float CalculateInterest()
+        {
+            return 0; // No interest for EverydayAccount
+        }
+    }
+}
+```
+
+---
+
+### **[6. InvestmentAccount Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/InvestmentAccount.cs)**
+
+```csharp
+namespace BankingApp.Lib;
+
+public class InvestmentAccount : Account
+{
+    public InvestmentAccount(float interestRate, float failedWithdrawalFee) 
+        : base(interestRate, overdraftLimit: 0, failedWithdrawalFee) {}
+
+    public override string Withdraw(float amount, User user)
+    {
+        if (amount > Balance)
+        {
+            Balance -= FailedWithdrawalFee * user.GetFeeDiscount();
+            transactions.Add(new Transaction("Failed Withdrawal", -FailedWithdrawalFee, Balance));
+            return "Withdrawal failed: Insufficient funds. Fee applied.";
+        }
+        Balance -= amount;
+        transactions.Add(new Transaction("Withdrawal", -amount, Balance));
+        return $"Withdrawal successful. New balance: {Balance}";
+    }
+
+    public override float CalculateInterest()
+    {
+        float interest = Balance * InterestRate;
+        Balance += interest;
+        transactions.Add(new Transaction("Interest Added", interest, Balance));
+        return interest;
+    }
+}
+```
+
+---
+
+### **[7. OmniAccount Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/OmiAccount.cs)**
+
+```csharp
+namespace BankingApp.Lib;
+
+public class OmniAccount : Account
+{
+    public OmniAccount(float interestRate, float overdraftLimit, float failedWithdrawalFee) 
+        : base(interestRate, overdraftLimit, failedWithdrawalFee) {}
+
+    public override string Withdraw(float amount, User user)
+    {
+        if (amount > Balance + OverdraftLimit)
+        {
+            Balance -= FailedWithdrawalFee * user.GetFeeDiscount();
+            transactions.Add(new Transaction("Failed Withdrawal", -FailedWithdrawalFee, Balance));
+            return "Withdrawal failed: Overdraft limit exceeded. Fee applied.";
+        }
+        Balance -= amount;
+        transactions.Add(new Transaction("Withdrawal", -amount, Balance));
+        return $"Withdrawal successful. New balance: {Balance}";
+    }
+
+    public override float CalculateInterest()
+    {
+        if (Balance > 1000)
+        {
+            float interest = Balance * InterestRate;
+            Balance += interest;
+            transactions.Add(new Transaction("Interest Added", interest, Balance));
+            return interest;
+        }
+        return 0;
+    }
+}
+```
+
+---
+
+### **[8. Transaction Class](https://github.com/gracemorganmaxwell/AdvancedProgramming_BankingApp_A1/blob/main/Transaction.cs)**
+
+```csharp
+namespace BankingApp.Lib;
+
+public class Transaction
+{
+    public int TransactionId { get; private set; }
+    public string TransactionType { get; private set; }
+    public float Amount { get; private set; }
+    public DateTime Timestamp { get; private set; }
+    public float BalanceAfterTransaction { get; private set; }
+    private static int transactionCount = 0;
+
+    public Transaction(string transactionType, float amount, float balanceAfterTransaction)
+    {
+        TransactionId = ++transactionCount;
+        TransactionType = transactionType;
+        Amount = amount;
+        BalanceAfterTransaction = balanceAfterTransaction;
+        Timestamp = DateTime.Now;
+    }
+
+    public override string ToString()
+    {
+        return $"{TransactionType}: {Amount} on {Timestamp}, Balance after: {BalanceAfterTransaction}";
+    }
+}
+```
+
+---
+
+This implementation provides a comprehensive library (`BankingApp.Lib`) that the GUI project (`BankingApp.Gui`) can integrate. Each class adheres to OOP principles and is structured to maximise extensibility and maintainability. Task 3 will build on this by implementing a user-friendly GUI for interacting with these classes.
 
 
 
