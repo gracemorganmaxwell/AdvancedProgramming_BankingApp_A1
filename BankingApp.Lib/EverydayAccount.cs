@@ -4,11 +4,6 @@ namespace BankingApp.Lib
     {
         public EverydayAccount() : base(interestRate: 0, overdraftLimit: 0, failedWithdrawalFee: 0) {}
 
-        public void Deposit(float amount)
-        {
-            throw new NotImplementedException();
-        }
-
         public override string Withdraw(float amount, User user)
         {
             if (amount > Balance)

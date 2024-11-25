@@ -19,7 +19,7 @@ public abstract class Account
         transactions = new List<Transaction>();
     }
 
-    public void Deposit(float amount)
+    public virtual void Deposit(float amount)
     {
         Balance += amount;
         transactions.Add(new Transaction("Deposit", amount, Balance));

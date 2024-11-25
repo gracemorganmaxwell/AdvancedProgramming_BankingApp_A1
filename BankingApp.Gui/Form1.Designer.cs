@@ -40,13 +40,13 @@ namespace BankingApp.Gui
             label1 = new Label();
             AccountBalanceTextBox = new TextBox();
             Transactions = new Panel();
-            BtnDeposit = new Button();
-            BtnWithdraw = new Button();
-            BtnCalculateInterest = new Button();
-            LabelTransactionPanel = new Label();
-            BtnAccountInformation = new Button();
             TextboxAmount = new TextBox();
             LabelAmount = new Label();
+            LabelTransactionPanel = new Label();
+            BtnCalculateInterest = new Button();
+            BtnWithdraw = new Button();
+            BtnDeposit = new Button();
+            BtnAccountInformation = new Button();
             ListboxLastTransactions = new ListBox();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             Transactions.SuspendLayout();
@@ -72,7 +72,6 @@ namespace BankingApp.Gui
             Tagline.Size = new Size(253, 21);
             Tagline.TabIndex = 1;
             Tagline.Text = " Because every cent counts… to us!";
-            Tagline.Click += label1_Click;
             // 
             // UserNameLabel
             // 
@@ -81,7 +80,6 @@ namespace BankingApp.Gui
             UserNameLabel.Name = "UserNameLabel";
             UserNameLabel.Size = new Size(0, 20);
             UserNameLabel.TabIndex = 2;
-            UserNameLabel.Click += label1_Click_1;
             // 
             // AccountTypeComboBox
             // 
@@ -109,7 +107,6 @@ namespace BankingApp.Gui
             label1.Size = new Size(119, 20);
             label1.TabIndex = 5;
             label1.Text = "Account Balance";
-            label1.Click += label1_Click_2;
             // 
             // AccountBalanceTextBox
             // 
@@ -131,53 +128,6 @@ namespace BankingApp.Gui
             Transactions.Size = new Size(373, 297);
             Transactions.TabIndex = 7;
             // 
-            // BtnDeposit
-            // 
-            BtnDeposit.Location = new Point(200, 77);
-            BtnDeposit.Name = "BtnDeposit";
-            BtnDeposit.Size = new Size(94, 29);
-            BtnDeposit.TabIndex = 0;
-            BtnDeposit.Text = "Deposit";
-            BtnDeposit.UseVisualStyleBackColor = true;
-            // 
-            // BtnWithdraw
-            // 
-            BtnWithdraw.Location = new Point(200, 112);
-            BtnWithdraw.Name = "BtnWithdraw";
-            BtnWithdraw.Size = new Size(94, 29);
-            BtnWithdraw.TabIndex = 1;
-            BtnWithdraw.Text = "Withdraw";
-            BtnWithdraw.UseVisualStyleBackColor = true;
-            // 
-            // BtnCalculateInterest
-            // 
-            BtnCalculateInterest.Location = new Point(174, 147);
-            BtnCalculateInterest.Name = "BtnCalculateInterest";
-            BtnCalculateInterest.Size = new Size(144, 29);
-            BtnCalculateInterest.TabIndex = 2;
-            BtnCalculateInterest.Text = "Calculate Interest";
-            BtnCalculateInterest.UseVisualStyleBackColor = true;
-            BtnCalculateInterest.Click += button1_Click;
-            // 
-            // LabelTransactionPanel
-            // 
-            LabelTransactionPanel.AutoSize = true;
-            LabelTransactionPanel.Location = new Point(3, 0);
-            LabelTransactionPanel.Name = "LabelTransactionPanel";
-            LabelTransactionPanel.Size = new Size(90, 20);
-            LabelTransactionPanel.TabIndex = 3;
-            LabelTransactionPanel.Text = "Transactions";
-            // 
-            // BtnAccountInformation
-            // 
-            BtnAccountInformation.Location = new Point(819, 91);
-            BtnAccountInformation.Name = "BtnAccountInformation";
-            BtnAccountInformation.Size = new Size(156, 29);
-            BtnAccountInformation.TabIndex = 4;
-            BtnAccountInformation.Text = "Account Information";
-            BtnAccountInformation.UseVisualStyleBackColor = true;
-            BtnAccountInformation.Click += button1_Click_1;
-            // 
             // TextboxAmount
             // 
             TextboxAmount.Location = new Point(204, 28);
@@ -194,6 +144,55 @@ namespace BankingApp.Gui
             LabelAmount.TabIndex = 9;
             LabelAmount.Text = "Amount";
             // 
+            // LabelTransactionPanel
+            // 
+            LabelTransactionPanel.AutoSize = true;
+            LabelTransactionPanel.Location = new Point(3, 0);
+            LabelTransactionPanel.Name = "LabelTransactionPanel";
+            LabelTransactionPanel.Size = new Size(90, 20);
+            LabelTransactionPanel.TabIndex = 3;
+            LabelTransactionPanel.Text = "Transactions";
+            // 
+            // BtnCalculateInterest
+            // 
+            BtnCalculateInterest.Location = new Point(174, 147);
+            BtnCalculateInterest.Name = "BtnCalculateInterest";
+            BtnCalculateInterest.Size = new Size(144, 29);
+            BtnCalculateInterest.TabIndex = 2;
+            BtnCalculateInterest.Text = "Calculate Interest";
+            BtnCalculateInterest.UseVisualStyleBackColor = true;
+            BtnCalculateInterest.Click += BtnCalculateInterest_Click;
+            // 
+            // BtnWithdraw
+            // 
+            BtnWithdraw.Location = new Point(200, 112);
+            BtnWithdraw.Name = "BtnWithdraw";
+            BtnWithdraw.Size = new Size(94, 29);
+            BtnWithdraw.TabIndex = 1;
+            BtnWithdraw.Text = "Withdraw";
+            BtnWithdraw.UseVisualStyleBackColor = true;
+            BtnWithdraw.Click += btnWithdraw_Click;
+            // 
+            // BtnDeposit
+            // 
+            BtnDeposit.Location = new Point(200, 77);
+            BtnDeposit.Name = "BtnDeposit";
+            BtnDeposit.Size = new Size(94, 29);
+            BtnDeposit.TabIndex = 0;
+            BtnDeposit.Text = "Deposit";
+            BtnDeposit.UseVisualStyleBackColor = true;
+            BtnDeposit.Click += BtnDeposit_Click;
+            // 
+            // BtnAccountInformation
+            // 
+            BtnAccountInformation.Location = new Point(819, 91);
+            BtnAccountInformation.Name = "BtnAccountInformation";
+            BtnAccountInformation.Size = new Size(156, 29);
+            BtnAccountInformation.TabIndex = 4;
+            BtnAccountInformation.Text = "Account Information";
+            BtnAccountInformation.UseVisualStyleBackColor = true;
+            BtnAccountInformation.Click += BtnAccountInfo_Click;
+            // 
             // ListboxLastTransactions
             // 
             ListboxLastTransactions.FormattingEnabled = true;
@@ -209,7 +208,7 @@ namespace BankingApp.Gui
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(1368, 508);
-            Control.Add(ListboxLastTransactions);
+            Controls.Add(ListboxLastTransactions);
             Controls.Add(Transactions);
             Controls.Add(AccountBalanceTextBox);
             Controls.Add(BtnAccountInformation);
@@ -226,6 +225,11 @@ namespace BankingApp.Gui
             Transactions.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void CalcInterestButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
