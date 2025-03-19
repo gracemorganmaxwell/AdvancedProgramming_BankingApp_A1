@@ -11,7 +11,7 @@ The Bank Account Management System is designed to streamline the process of hand
 The system follows the MVC pattern, ensuring clear separation between business logic (Model), user interface (View), and interaction handling (Controller). It provides a user-friendly interface, enforces role-based authentication, and includes exception handling for unauthorized transactions or insufficient funds. Additionally, the system features a Transaction Manager to centralize all account transactions, allowing for auditing and improved financial tracking.
 
 ## Overview
-This document provides a detailed analysis of the business requirements for managing customer information and the design of the **Controller Class** following the **MVC (Model-View-Controller) Pattern**. The accompanying UML Class Diagram (**A2__UML_Diagram.png**) visually represents the relationships between entities in the system.
+This document provides a detailed analysis of the business requirements for managing customer information and the design of the **Controller Class** following the **MVC (Model-View-Controller) Pattern**. The accompanying UML Class Diagram ![UML Diagram](A2_UML_Diagram.png) visually represents the relationships between entities in the system.
 
 ## 1. Business Requirements Analysis
 The bank requires a **structured and maintainable** system to manage customer accounts, staff details, and transactions while following the **MVC pattern**. The system must:
