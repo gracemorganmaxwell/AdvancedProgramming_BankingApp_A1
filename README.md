@@ -1,90 +1,82 @@
-# Bank Account Management Application Read Me File
-
-## Overview
-
-This repository contains an application designed to manage customer bank accounts, supporting various account types and specific functionality for both regular customers and bank staff. The primary functionality includes deposit, withdrawal, and interest calculation. Additionally, bank staff receive a 50% discount on transaction fees.
-
-### Contents
-
-- **Task 1**: `Task1.md` - Analysis and UML Class Diagram with detailed explanations of the design choices, including the use of object-oriented principles and SOLID principles. A UML diagram is also provided in `UML_Diagram.png`.
-- **Task 2**: `Task2.cs` - Implementation of the UML classes in C#. This task includes inheritance, constructors, and methods for managing account information and transactions.
-- **Task 3**: `Task3_GUI.cs` - A GUI prototype that integrates the account classes, allowing users to interact with different account types, perform transactions, and view account information.
-- **Task 4**: GitHub Repository setup - Code organization, documentation, and repository setup guidelines.
-
----
+﻿# IT7742 Bank Account Management
+## Assignment 2 - Task 1: Analysis and UML Class Diagram
+**Student:** Gracie Morgan-Maxwell  
+**Student ID:** 20200261  
+**Date:** March 2025  
 
 ## Scenario
 
-The application facilitates deposit and withdrawal transactions for bank customers, supporting distinct account types with customized features. It also includes a fee discount for bank staff.
+The Bank Account Management System is designed to streamline the process of handling customer banking operations while ensuring security, reliability, and ease of use. The system caters to both regular customers and bank staff, providing them with different levels of access and functionality. Customers can manage their Everyday, Investment, and Omni accounts, perform deposits, withdrawals, and view transaction history. Meanwhile, bank staff can oversee and manage customer accounts, approve transactions, and ensure compliance with banking regulations.
 
-### Customers
-Customers (including staff members) have the following attributes:
-- **Customer Number**
-- **Name**
-- **Contact Details**
+The system follows the MVC pattern, ensuring clear separation between business logic (Model), user interface (View), and interaction handling (Controller). It provides a user-friendly interface, enforces role-based authentication, and includes exception handling for unauthorized transactions or insufficient funds. Additionally, the system features a Transaction Manager to centralize all account transactions, allowing for auditing and improved financial tracking.
 
-### Accounts
-The application includes three account types:
-1. **Everyday Account**
-   - No interest, overdraft, or transaction fees.
-2. **Investment Account**
-   - Variable interest rates, no overdraft, fee for failed transactions, and interest calculation.
-3. **Omni Account**
-   - Interest applied on balances over $1000, specific overdraft limit, failed transaction fees, and simple deposit and interest calculation methods.
+## Overview
+This document provides a detailed analysis of the business requirements for managing customer information and the design of the **Controller Class** following the **MVC (Model-View-Controller) Pattern**. The accompanying UML Class Diagram (**A2__UML_Diagram.png**) visually represents the relationships between entities in the system.
 
-Each account type is implemented with attributes and methods for:
-- **Unique ID**: Account identifier.
-- **Balance**: Account balance.
-- **Interest Rate**: Interest rate (if applicable).
-- **Overdraft Limit**: Allowed overdraft limit (if applicable).
-- **Failed Withdrawal Fee**: Fee for failed withdrawal attempts.
-- **Deposit Method**: Adds to account balance.
-- **Withdrawal Method**: Handles withdrawal, overdraft checks, and fee deduction.
-- **Interest Calculation Method**: Calculates and adds interest to the balance (if applicable).
+## 1. Business Requirements Analysis
+The bank requires a **structured and maintainable** system to manage customer accounts, staff details, and transactions while following the **MVC pattern**. The system must:
+- Support multiple account types (**Everyday, Investment, Omni**).
+- Provide a **centralized** transaction management system.
+- Differentiate between **customers and bank staff**.
+- Implement **robust exception handling** for transaction failures.
+- Offer a **user-friendly UI** for managing accounts.
+- Ensure **secure authentication** and role-based access control.
+
+## 2. Controller Class Design
+### **2.1 Attributes**
+The **CustomerController** and **AccountController** classes manage customer and account data, ensuring proper interaction between the **model (business logic) and view (UI).**
+
+#### **CustomerController Attributes:**
+- `users: List<User>` - Stores all customer and staff records.
+- `view: ICustomerView` - Interface reference for UI interaction.
+
+#### **AccountController Attributes:**
+- `accounts: List<Account>` - Maintains a list of bank accounts.
+
+### **2.2 Methods**
+#### **CustomerController Methods:**
+- `CustomerController(ICustomerView view)`: Initializes the controller with a UI reference.
+- `AddCustomer(int id, string name)`: Adds a new customer.
+- `UpdateCustomer(int id, string newName)`: Updates customer details.
+- `DeleteCustomer(int id)`: Removes a customer.
+- `SearchCustomer(string name)`: Searches for a customer.
+- `GetCustomer(int id) -> User`: Retrieves customer details.
+- `DisplayCustomers()`: Displays customer information in the UI.
+
+#### **AccountController Methods:**
+- `CreateAccount(string type, User owner)`: Creates an account for a customer.
+- `Deposit(int accountId, float amount)`: Deposits money into an account.
+- `Withdraw(int accountId, float amount, User user)`: Handles withdrawals, enforcing overdraft and penalty rules.
+- `ListTransactions(int accountId)`: Retrieves transaction history for an account.
+
+## 3. Design Rationale (300 Words)
+The **MVC architecture** is chosen to ensure **separation of concerns**, making the system modular and scalable. The **Controller Classes** act as an intermediary between the **Model (business logic)** and the **View (user interface)**, enabling **efficient data management and presentation**.
+
+### **Why MVC?**
+1. **Scalability:** Allows easy integration of new features (e.g., additional account types).
+2. **Maintainability:** Changes to the UI do not impact the business logic.
+3. **Security:** Controllers enforce authentication and role-based access.
+
+### **Controller Role in Data Management**
+The **CustomerController** and **AccountController** manage interactions with the **User and Account Models**, ensuring **data consistency and enforcing rules** (e.g., preventing overdrafts in non-Omni accounts). By keeping transaction records centralized, auditing is simplified.
+
+### **Exception Handling**
+The system introduces **custom exceptions** to manage errors:
+- `InvalidTransactionException`: For invalid operations.
+- `UnauthorizedAccessException`: For restricted actions.
+- `InsufficientFundsException`: For withdrawals exceeding balance.
+
+These exceptions improve **system stability** and **error handling clarity**.
+
+## 4. Implementation of Customer and Controller Classes
+The **Customer and Controller Classes** will be implemented based on the UML design. The **UI will integrate with controllers** for seamless user interaction, ensuring real-time updates and smooth account management.
+
+## 5. User Interface Design
+The **UI Forms** will allow users to **add, update, and delete customer information** while maintaining branding consistency. The forms will be interactive, ensuring **smooth navigation and error handling**.
+
+## 6. Conclusion
+This document outlines the **MVC-based Controller design** for managing customer accounts, ensuring **scalability, maintainability, and security**. The accompanying **UML_Diagram.png** provides a **visual representation of the architecture**, ensuring **clear documentation** of class relationships and responsibilities.
 
 ---
+📌 **Next Steps:** Implement the **Controller Classes** and integrate them with the UI.
 
-## Tasks
-
-### Task 1 - UML Class Diagram and Explanation
-- **File**: `Task1.md`
-- **Diagram**: `UML_Diagram.png`
-
-This document includes:
-- A UML class diagram with associations, inheritance, and abstract classes.
-- Detailed explanations of design choices, including object-oriented and SOLID principles.
-- Use case scenarios demonstrating account management and transaction logging.
-
-### Task 2 - C# Class Implementation
-- **File**: `Task2.cs`
-
-Implementation of the UML classes in C#, focusing on:
-- **Inheritance and access modifiers** for encapsulation.
-- **Constructors** with relevant parameters for each class.
-- Methods for account information, balance management, and transaction details.
-- Adherence to **C# coding standards** and best practices, with clear documentation for each class and method.
-
-### Task 3 - GUI Form Prototype
-- **File**: `Task3_GUI.cs`
-
-A GUI prototype that integrates the account classes and provides a user interface for managing accounts:
-- **Functionality**:
-  - Account selection and information display.
-  - Withdrawals, deposits, and interest calculation.
-  - Transaction history displayed in a list box.
-  - Error handling and input validation.
-- **Sample Data**:
-  - A hardcoded user "John Doe" with Everyday, Investment, and Omni accounts.
-
-### Task 4 - GitHub Repository Setup
-- **Repository**: [https://github.com/gracemorganmaxwell/CSharp_BankingApp_A1/edit/main/README.md]
-
-All project files and documentation are organized within a private GitHub repository:
-- **Access**: Add tutor as a collaborator for access.
-- **Documentation**: All code and files are well-documented and organized to facilitate understanding and collaboration.
-
----
-
-## Usage
-
-Either clone or fork this repository and run the project files as per the requirements for each task. Ensure all dependencies and setup instructions are followed for a smooth experience with the GUI and C# implementations.
