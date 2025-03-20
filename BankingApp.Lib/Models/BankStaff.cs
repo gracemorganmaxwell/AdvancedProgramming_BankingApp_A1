@@ -1,4 +1,4 @@
-namespace BankingApp.Lib
+namespace BankingApp.Lib.Models
 {
     using System;
 
