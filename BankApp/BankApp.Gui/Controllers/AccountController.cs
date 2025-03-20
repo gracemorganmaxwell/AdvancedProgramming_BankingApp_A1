@@ -13,14 +13,14 @@ namespace BankingApp.Gui.Controllers
         /// <summary>
         /// Stores a list of all bank accounts.
         /// </summary>
-        private List<Account> accounts;
+        private List<Account> _accounts;
 
         /// <summary>
         /// Initializes a new instance of the AccountController.
         /// </summary>
         public AccountController()
         {
-            accounts = new List<Account>();
+            _accounts = new List<Account>();
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace BankingApp.Gui.Controllers
                 _ => throw new ArgumentException("Invalid account type specified.")
             };
 
-            accounts.Add(newAccount);
+            _accounts.Add(newAccount);
             Console.WriteLine($"{accountType} account created for {owner.FirstName} {owner.LastName}.");
         }
 
@@ -49,7 +49,7 @@ namespace BankingApp.Gui.Controllers
         /// <param name="amount">Amount to deposit</param>
         public void Deposit(int accountId, float amount)
         {
-            Account account = accounts.Find(a => a.AccountId == accountId);
+            Account account = _accounts.Find(a => a.AccountId == accountId);
             if (account != null)
             {
                 account.Deposit(amount);
@@ -69,7 +69,7 @@ namespace BankingApp.Gui.Controllers
         /// <param name="user">User making the withdrawal</param>
         public void Withdraw(int accountId, float amount, User user)
         {
-            Account account = accounts.Find(a => a.AccountId == accountId);
+            Account account = _accounts.Find(a => a.AccountId == accountId);
             if (account != null)
             {
                 string result = account.Withdraw(amount, user);
@@ -84,4 +84,21 @@ namespace BankingApp.Gui.Controllers
         /// <summary>
         /// Retrieves and displays the transaction history of an account.
         /// </summary>
-        /// <par
+        /// <param name="accountId">ID of the account</param>
+        public void DisplayTransactionHistory(int accountId)
+        {
+            Account account = _accounts.Find(a => a.AccountId == accountId);
+            if (account != null)
+            {
+                foreach (var transaction in account.GetTransactionHistory())
+                {
+                    Console.WriteLine(transaction.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("Account not found.");
+            }
+        }
+    }
+}

@@ -104,31 +104,4 @@
             ContactDetails = newDetails;
         }
     }
-
-    // ===========================
-    // CLASS: BankStaff
-    // ===========================
-    // Represents a specialized user who is a staff member at the bank.
-    public class BankStaff : User
-    {
-        // Stores additional contact details specific to staff members
-        public StaffContactDetails StaffDetails { get; private set; }
-
-        // ===========================
-        // CONSTRUCTOR: BankStaff
-        // ===========================
-        /// <summary>
-        /// Creates a new bank staff member, inheriting from the User class.
-        /// </summary>
-        /// <param name="firstName">Staff's first name</param>
-        /// <param name="lastName">Staff's last name</param>
-        /// <param name="dateOfBirth">Staff's date of birth</param>
-        /// <param name="contactDetails">General contact details</param>
-        /// <param name="staffDetails">Additional details specific to staff members</param>
-        public BankStaff(string firstName, string lastName, DateTime dateOfBirth, ContactDetails contactDetails, StaffContactDetails staffDetails)
-            : base(firstName, lastName, dateOfBirth, contactDetails, UserRole.STAFF)
-        {
-            StaffDetails = staffDetails;
-        }
-    }
 }

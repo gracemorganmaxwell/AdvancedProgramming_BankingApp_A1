@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="NuGet.Packaging" Version="6.13.2" />
+    </ItemGroup>
+
 </Project>

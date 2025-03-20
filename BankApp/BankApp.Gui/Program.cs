@@ -1,4 +1,6 @@
-namespace namespace BankingApp.Gui.Forms
+using MainMenuForm;
+
+namespace BankingApp.Gui.Forms
 {
     internal static class Program
     {

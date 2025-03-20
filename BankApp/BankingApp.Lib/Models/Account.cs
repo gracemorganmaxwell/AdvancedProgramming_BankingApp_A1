@@ -1,7 +1,7 @@
 namespace BankingApp.Lib.Models
 {
-    using System;
     using System.Collections.Generic;
+    using Lib.Models;
 
     /// <summary>
     /// Represents a generic bank account with basic financial operations.
