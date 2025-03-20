@@ -1,4 +1,4 @@
-namespace BankingApp.Lib.Controllers
+namespace BankingApp.Gui.Controllers
 {
     using System;
     using System.Collections.Generic;

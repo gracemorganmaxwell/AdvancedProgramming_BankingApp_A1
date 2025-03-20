@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BankingApp.Lib",
+    "\\BankingApp.Lib\\Forms",
+    "\\BankingApp.Lib\\Forms\\AddCustomerForm",
+    "\\BankingApp.Lib\\Forms\\MainMenuForm",
+    "\\BankingApp.Lib\\Forms\\SearchCustomerForm"
+  ],
+  "PreviewInSolutionExplorer": false
+}

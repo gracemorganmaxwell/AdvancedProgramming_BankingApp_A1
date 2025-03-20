@@ -1,8 +1,8 @@
-namespace BankingApp.Forms.Views.Customers
+namespace BankingApp.Gui
 {
     using System;
     using System.Windows.Forms;
-    using BankingApp.Lib.Controllers;
+    using BankingApp.Gui.Controllers;
     using BankingApp.Lib.Models;
 
     /// <summary>
