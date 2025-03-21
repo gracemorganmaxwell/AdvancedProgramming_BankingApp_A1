@@ -1,7 +1,6 @@
-using MainMenuForm;
-
 namespace BankingApp.Gui.Forms
 {
+    using MainMenuForm;
     internal static class Program
     {
         /// <summary>
