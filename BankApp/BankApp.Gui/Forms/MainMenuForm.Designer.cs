@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             pictureLogo = new PictureBox();
             labelHomeMenuTitle = new Label();
@@ -35,6 +36,8 @@
             BtnSearchCustomer = new Button();
             labelHomeScreenFooter = new Label();
             panelHomeScreen = new Panel();
+            LabelTimeDate = new Label();
+            DateTimeTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
             panelHomeScreen.SuspendLayout();
             SuspendLayout();
@@ -42,9 +45,9 @@
             // pictureLogo
             // 
             pictureLogo.Image = Properties.Resources.banklogo;
-            pictureLogo.Location = new Point(2, 2);
+            pictureLogo.Location = new Point(541, 3);
             pictureLogo.Name = "pictureLogo";
-            pictureLogo.Size = new Size(150, 150);
+            pictureLogo.Size = new Size(120, 120);
             pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureLogo.TabIndex = 0;
             pictureLogo.TabStop = false;
@@ -53,7 +56,8 @@
             // 
             labelHomeMenuTitle.AutoSize = true;
             labelHomeMenuTitle.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelHomeMenuTitle.Location = new Point(6, 47);
+            labelHomeMenuTitle.ForeColor = Color.DimGray;
+            labelHomeMenuTitle.Location = new Point(10, 10);
             labelHomeMenuTitle.Name = "labelHomeMenuTitle";
             labelHomeMenuTitle.Size = new Size(513, 47);
             labelHomeMenuTitle.TabIndex = 1;
@@ -64,7 +68,7 @@
             BtnAddCustomer.BackColor = Color.Honeydew;
             BtnAddCustomer.FlatStyle = FlatStyle.Popup;
             BtnAddCustomer.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnAddCustomer.Location = new Point(36, 138);
+            BtnAddCustomer.Location = new Point(10, 83);
             BtnAddCustomer.Name = "BtnAddCustomer";
             BtnAddCustomer.Size = new Size(220, 40);
             BtnAddCustomer.TabIndex = 2;
@@ -77,7 +81,7 @@
             BtnSearchCustomer.BackColor = Color.Honeydew;
             BtnSearchCustomer.FlatStyle = FlatStyle.Popup;
             BtnSearchCustomer.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnSearchCustomer.Location = new Point(273, 138);
+            BtnSearchCustomer.Location = new Point(10, 156);
             BtnSearchCustomer.Name = "BtnSearchCustomer";
             BtnSearchCustomer.Size = new Size(220, 40);
             BtnSearchCustomer.TabIndex = 3;
@@ -89,7 +93,7 @@
             // 
             labelHomeScreenFooter.AutoSize = true;
             labelHomeScreenFooter.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelHomeScreenFooter.Location = new Point(15, 420);
+            labelHomeScreenFooter.Location = new Point(515, 231);
             labelHomeScreenFooter.Name = "labelHomeScreenFooter";
             labelHomeScreenFooter.Size = new Size(143, 15);
             labelHomeScreenFooter.TabIndex = 4;
@@ -98,23 +102,39 @@
             // panelHomeScreen
             // 
             panelHomeScreen.BackColor = Color.White;
+            panelHomeScreen.Controls.Add(LabelTimeDate);
             panelHomeScreen.Controls.Add(BtnAddCustomer);
+            panelHomeScreen.Controls.Add(labelHomeScreenFooter);
             panelHomeScreen.Controls.Add(BtnSearchCustomer);
+            panelHomeScreen.Controls.Add(pictureLogo);
             panelHomeScreen.Controls.Add(labelHomeMenuTitle);
-            panelHomeScreen.Location = new Point(190, 80);
+            panelHomeScreen.Location = new Point(2, -1);
             panelHomeScreen.Name = "panelHomeScreen";
-            panelHomeScreen.Size = new Size(525, 251);
+            panelHomeScreen.Size = new Size(661, 251);
             panelHomeScreen.TabIndex = 5;
+            // 
+            // LabelTimeDate
+            // 
+            LabelTimeDate.AutoSize = true;
+            LabelTimeDate.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LabelTimeDate.Location = new Point(10, 226);
+            LabelTimeDate.Name = "LabelTimeDate";
+            LabelTimeDate.Size = new Size(0, 20);
+            LabelTimeDate.TabIndex = 5;
+            // 
+            // DateTimeTimer
+            // 
+            DateTimeTimer.Enabled = true;
+            DateTimeTimer.Interval = 1000;
+            DateTimeTimer.Tick += DateTimeTimer_Tick;
             // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(682, 254);
             Controls.Add(panelHomeScreen);
-            Controls.Add(labelHomeScreenFooter);
-            Controls.Add(pictureLogo);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainMenuForm";
             Text = "Hawkins Bank - Customer Management Menu";
@@ -122,7 +142,6 @@
             panelHomeScreen.ResumeLayout(false);
             panelHomeScreen.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -133,5 +152,7 @@
         private Button BtnSearchCustomer;
         private Label labelHomeScreenFooter;
         private Panel panelHomeScreen;
+        private Label LabelTimeDate;
+        private System.Windows.Forms.Timer DateTimeTimer;
     }
 }
