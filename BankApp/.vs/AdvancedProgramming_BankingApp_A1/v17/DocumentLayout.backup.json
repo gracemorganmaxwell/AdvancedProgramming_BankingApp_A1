@@ -1,12 +1,142 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\forms\\addcustomerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\forms\\addcustomerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|c:\\users\\grace\\source\\repos\\gracemorganmaxwell\\advancedprogramming_bankingapp_a1\\bankapp\\bankapp.gui\\forms\\searchcustomerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F4A1F03B-C731-1882-F638-6F480243D5D2}|BankApp.Gui\\BankApp.Gui.csproj|solutionrelative:bankapp.gui\\forms\\searchcustomerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainMenuForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\MainMenuForm.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Forms\\MainMenuForm.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\MainMenuForm.cs [Design]",
+              "RelativeToolTip": "BankApp.Gui\\Forms\\MainMenuForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T04:26:52.298Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "BankApp.Gui\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T04:17:40.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "BankApp.Gui\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T04:07:13.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Program.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Program.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Program.cs",
+              "RelativeToolTip": "BankApp.Gui\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:23:49.82Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SearchCustomerForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\SearchCustomerForm.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Forms\\SearchCustomerForm.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\SearchCustomerForm.cs [Design]",
+              "RelativeToolTip": "BankApp.Gui\\Forms\\SearchCustomerForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:54:19.99Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainMenuForm.cs",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\MainMenuForm.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Forms\\MainMenuForm.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\MainMenuForm.cs",
+              "RelativeToolTip": "BankApp.Gui\\Forms\\MainMenuForm.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAlwC8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:39:52.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddCustomerForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\AddCustomerForm.cs",
+              "RelativeDocumentMoniker": "BankApp.Gui\\Forms\\AddCustomerForm.cs",
+              "ToolTip": "C:\\Users\\grace\\source\\repos\\gracemorganmaxwell\\AdvancedProgramming_BankingApp_A1\\BankApp\\BankApp.Gui\\Forms\\AddCustomerForm.cs [Design]",
+              "RelativeToolTip": "BankApp.Gui\\Forms\\AddCustomerForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:52:53.001Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

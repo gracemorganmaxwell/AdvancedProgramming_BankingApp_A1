@@ -1,6 +1,7 @@
-namespace BankingApp.Gui.Forms
+using BankApp.Gui.Forms;
+
+namespace BankApp.Gui
 {
-    using MainMenuForm;
     internal static class Program
     {
         /// <summary>
@@ -12,7 +13,7 @@ namespace BankingApp.Gui.Forms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormHomeScreen());
+            Application.Run(new MainMenuForm());
         }
     }
 }

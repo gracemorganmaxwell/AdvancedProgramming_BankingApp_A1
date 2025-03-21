@@ -1,9 +1,8 @@
-namespace BankingApp.Gui.Controllers
-{
-    using System;
-    using System.Collections.Generic;
-    using BankingApp.Lib.Models;
+using BankingApp.Lib.Models;
 
+namespace BankApp.Gui.Controllers
+{
+    
     /// <summary>
     /// Manages account-related operations, including deposits, withdrawals, and transactions.
     /// Acts as a bridge between the Account model and the View.
@@ -20,7 +19,7 @@ namespace BankingApp.Gui.Controllers
         /// </summary>
         public AccountController()
         {
-            _accounts = new List<Account>();
+            _accounts = []; // Initialize an empty list of accounts
         }
 
         /// <summary>

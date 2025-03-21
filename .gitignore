@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BankApp/.vs/AdvancedProgramming_BankingApp_A1/CopilotIndices/17.13.441.19478/CodeChunks.db
+/BankApp/.vs/AdvancedProgramming_BankingApp_A1/CopilotIndices/17.13.441.19478/CodeChunks.db-wal
+/BankApp/.vs/AdvancedProgramming_BankingApp_A1/CopilotIndices/17.13.441.19478/SemanticSymbols.db
+/BankApp/.vs/AdvancedProgramming_BankingApp_A1/CopilotIndices/17.13.441.19478/SemanticSymbols.db-wal
+/BankApp/.vs/AdvancedProgramming_BankingApp_A1/DesignTimeBuild/.dtbcache.v2

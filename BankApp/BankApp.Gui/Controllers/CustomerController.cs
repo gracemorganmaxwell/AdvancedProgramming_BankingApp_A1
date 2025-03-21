@@ -1,9 +1,7 @@
-namespace BankingApp.Gui.Controllers
-{
-    using System;
-    using System.Collections.Generic;
-    using BankingApp.Lib.Models;
+using BankingApp.Lib.Models;
 
+namespace BankApp.Gui.Controllers
+{
     /// <summary>
     /// Manages customer-related operations, acting as a bridge between the Model (User) and View.
     /// </summary>
@@ -12,14 +10,14 @@ namespace BankingApp.Gui.Controllers
         /// <summary>
         /// Stores a list of all customers (including staff).
         /// </summary>
-        private List<User> users;
+        private List<User> _users;
 
         /// <summary>
         /// Initializes a new instance of the CustomerController.
         /// </summary>
         public CustomerController()
         {
-            users = new List<User>();
+            _users = [];
         }
 
         /// <summary>
@@ -33,7 +31,7 @@ namespace BankingApp.Gui.Controllers
         public void AddCustomer(string firstName, string lastName, DateTime dateOfBirth, ContactDetails contactDetails, UserRole role)
         {
             User newUser = new User(firstName, lastName, dateOfBirth, contactDetails, role);
-            users.Add(newUser);
+            _users.Add(newUser);
             Console.WriteLine($"Customer {firstName} {lastName} added successfully.");
         }
 
@@ -44,7 +42,7 @@ namespace BankingApp.Gui.Controllers
         /// <param name="newDetails">New contact details</param>
         public void UpdateCustomer(int userId, ContactDetails newDetails)
         {
-            User customer = users.Find(u => u.UserId == userId);
+            User customer = _users.Find(u => u.UserId == userId);
             if (customer != null)
             {
                 customer.UpdateDetails(newDetails);
@@ -62,10 +60,10 @@ namespace BankingApp.Gui.Controllers
         /// <param name="userId">ID of the customer to remove</param>
         public void DeleteCustomer(int userId)
         {
-            User customer = users.Find(u => u.UserId == userId);
+            User customer = _users.Find(u => u.UserId == userId);
             if (customer != null)
             {
-                users.Remove(customer);
+                _users.Remove(customer);
                 Console.WriteLine($"Customer {customer.FirstName} {customer.LastName} deleted.");
             }
             else
@@ -81,7 +79,7 @@ namespace BankingApp.Gui.Controllers
         /// <returns>List of customers matching the search query</returns>
         public List<User> SearchCustomer(string name)
         {
-            List<User> matchingUsers = users.FindAll(u => u.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase) || 
+            List<User> matchingUsers = _users.FindAll(u => u.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase) || 
                                                           u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase));
 
             if (matchingUsers.Count == 0)
@@ -98,7 +96,7 @@ namespace BankingApp.Gui.Controllers
         /// <returns>The matching User object, or null if not found</returns>
         public User GetCustomer(int userId)
         {
-            return users.Find(u => u.UserId == userId);
+            return _users.Find(u => u.UserId == userId);
         }
 
         /// <summary>
@@ -106,14 +104,14 @@ namespace BankingApp.Gui.Controllers
         /// </summary>
         public void DisplayCustomers()
         {
-            if (users.Count == 0)
+            if (_users.Count == 0)
             {
                 Console.WriteLine("No customers available.");
                 return;
             }
 
             Console.WriteLine("Customer List:");
-            foreach (User customer in users)
+            foreach (User customer in _users)
             {
                 Console.WriteLine($"ID: {customer.UserId}, Name: {customer.FirstName} {customer.LastName}, Role: {customer.Role}");
             }
