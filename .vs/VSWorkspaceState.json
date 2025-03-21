@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BankingApp.Lib",
-    "\\BankingApp.Lib\\Forms",
-    "\\BankingApp.Lib\\Forms\\AddCustomerForm",
-    "\\BankingApp.Lib\\Forms\\MainMenuForm",
-    "\\BankingApp.Lib\\Forms\\SearchCustomerForm"
+    "\\BankApp"
   ],
+  "SelectedNode": "\\BankApp\\AdvancedProgramming_BankingApp_A1.sln",
   "PreviewInSolutionExplorer": false
 }
