@@ -36,6 +36,8 @@
             BtnSearchCustomer = new Button();
             labelHomeScreenFooter = new Label();
             panelHomeScreen = new Panel();
+            BtnImportCustomers = new Button();
+            BtnExportCustomers = new Button();
             LabelTimeDate = new Label();
             DateTimeTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
@@ -45,7 +47,7 @@
             // pictureLogo
             // 
             pictureLogo.Image = Properties.Resources.banklogo;
-            pictureLogo.Location = new Point(541, 3);
+            pictureLogo.Location = new Point(548, 0);
             pictureLogo.Name = "pictureLogo";
             pictureLogo.Size = new Size(120, 120);
             pictureLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -70,7 +72,7 @@
             BtnAddCustomer.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAddCustomer.Location = new Point(10, 83);
             BtnAddCustomer.Name = "BtnAddCustomer";
-            BtnAddCustomer.Size = new Size(220, 40);
+            BtnAddCustomer.Size = new Size(184, 40);
             BtnAddCustomer.TabIndex = 2;
             BtnAddCustomer.Text = "Add Customer";
             BtnAddCustomer.UseVisualStyleBackColor = false;
@@ -81,9 +83,9 @@
             BtnSearchCustomer.BackColor = Color.Honeydew;
             BtnSearchCustomer.FlatStyle = FlatStyle.Popup;
             BtnSearchCustomer.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnSearchCustomer.Location = new Point(10, 156);
+            BtnSearchCustomer.Location = new Point(10, 129);
             BtnSearchCustomer.Name = "BtnSearchCustomer";
-            BtnSearchCustomer.Size = new Size(220, 40);
+            BtnSearchCustomer.Size = new Size(184, 40);
             BtnSearchCustomer.TabIndex = 3;
             BtnSearchCustomer.Text = "Search Customer";
             BtnSearchCustomer.UseVisualStyleBackColor = false;
@@ -93,7 +95,7 @@
             // 
             labelHomeScreenFooter.AutoSize = true;
             labelHomeScreenFooter.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelHomeScreenFooter.Location = new Point(515, 231);
+            labelHomeScreenFooter.Location = new Point(525, 231);
             labelHomeScreenFooter.Name = "labelHomeScreenFooter";
             labelHomeScreenFooter.Size = new Size(143, 15);
             labelHomeScreenFooter.TabIndex = 4;
@@ -102,6 +104,8 @@
             // panelHomeScreen
             // 
             panelHomeScreen.BackColor = Color.White;
+            panelHomeScreen.Controls.Add(BtnImportCustomers);
+            panelHomeScreen.Controls.Add(BtnExportCustomers);
             panelHomeScreen.Controls.Add(LabelTimeDate);
             panelHomeScreen.Controls.Add(BtnAddCustomer);
             panelHomeScreen.Controls.Add(labelHomeScreenFooter);
@@ -110,8 +114,34 @@
             panelHomeScreen.Controls.Add(labelHomeMenuTitle);
             panelHomeScreen.Location = new Point(2, -1);
             panelHomeScreen.Name = "panelHomeScreen";
-            panelHomeScreen.Size = new Size(661, 251);
+            panelHomeScreen.Size = new Size(668, 251);
             panelHomeScreen.TabIndex = 5;
+            // 
+            // BtnImportCustomers
+            // 
+            BtnImportCustomers.BackColor = Color.Honeydew;
+            BtnImportCustomers.FlatStyle = FlatStyle.Popup;
+            BtnImportCustomers.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnImportCustomers.Location = new Point(205, 83);
+            BtnImportCustomers.Name = "BtnImportCustomers";
+            BtnImportCustomers.Size = new Size(184, 40);
+            BtnImportCustomers.TabIndex = 8;
+            BtnImportCustomers.Text = "Import Customers";
+            BtnImportCustomers.UseVisualStyleBackColor = false;
+            BtnImportCustomers.Click += BtnImportCustomers_Click;
+            // 
+            // BtnExportCustomers
+            // 
+            BtnExportCustomers.BackColor = Color.Honeydew;
+            BtnExportCustomers.FlatStyle = FlatStyle.Popup;
+            BtnExportCustomers.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnExportCustomers.Location = new Point(205, 129);
+            BtnExportCustomers.Name = "BtnExportCustomers";
+            BtnExportCustomers.Size = new Size(184, 40);
+            BtnExportCustomers.TabIndex = 7;
+            BtnExportCustomers.Text = "Export Customers";
+            BtnExportCustomers.UseVisualStyleBackColor = false;
+            BtnExportCustomers.Click += BtnExportCustomers_Click;
             // 
             // LabelTimeDate
             // 
@@ -154,5 +184,7 @@
         private Panel panelHomeScreen;
         private Label LabelTimeDate;
         private System.Windows.Forms.Timer DateTimeTimer;
+        private Button BtnImportCustomers;
+        private Button BtnExportCustomers;
     }
 }

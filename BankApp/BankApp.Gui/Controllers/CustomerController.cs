@@ -3,31 +3,38 @@ using BankingApp.Lib.Models;
 namespace BankApp.Gui.Controllers
 {
     /// <summary>
-    /// Manages customer-related operations, acting as a bridge between the Model (User) and View.
+    /// Manages customer-related operations, acting as a bridge between the UI and the model layer.
     /// </summary>
     public class CustomerController
     {
         /// <summary>
-        /// Stores a list of all customers (including staff).
+        /// Internal list of users in memory (including staff and customers).
         /// </summary>
         private List<User> _users;
 
         /// <summary>
-        /// Initializes a new instance of the CustomerController.
+        /// Initializes a new instance of the <see cref="CustomerController"/> class.
         /// </summary>
         public CustomerController()
         {
-            _users = [];
+            _users = new List<User>();
         }
 
         /// <summary>
-        /// Adds a new customer to the system.
+        /// Public accessor to expose the list of users to other controllers (e.g. CsvController).
         /// </summary>
-        /// <param name="firstName">First name of the customer</param>
-        /// <param name="lastName">Last name of the customer</param>
-        /// <param name="dateOfBirth">Date of birth of the customer</param>
-        /// <param name="contactDetails">Contact details of the customer</param>
-        /// <param name="role">User role (CUSTOMER or STAFF)</param>
+        public List<User> Users => _users;
+
+        // === Add ===
+
+        /// <summary>
+        /// Adds a new customer or staff member to the system.
+        /// </summary>
+        /// <param name="firstName">Customer's first name.</param>
+        /// <param name="lastName">Customer's last name.</param>
+        /// <param name="dateOfBirth">Customer's date of birth.</param>
+        /// <param name="contactDetails">Contact details (email, phone, address).</param>
+        /// <param name="role">User role (e.g. CUSTOMER, STAFF, BOTH).</param>
         public void AddCustomer(string firstName, string lastName, DateTime dateOfBirth, ContactDetails contactDetails, UserRole role)
         {
             User newUser = new User(firstName, lastName, dateOfBirth, contactDetails, role);
@@ -35,11 +42,13 @@ namespace BankApp.Gui.Controllers
             Console.WriteLine($"Customer {firstName} {lastName} added successfully.");
         }
 
+        // === Update ===
+
         /// <summary>
-        /// Updates the details of an existing customer.
+        /// Updates an existing customer's contact details.
         /// </summary>
-        /// <param name="userId">ID of the customer to update</param>
-        /// <param name="newDetails">New contact details</param>
+        /// <param name="userId">The ID of the customer to update.</param>
+        /// <param name="newDetails">The new contact details.</param>
         public void UpdateCustomer(int userId, ContactDetails newDetails)
         {
             User customer = _users.Find(u => u.UserId == userId);
@@ -54,10 +63,12 @@ namespace BankApp.Gui.Controllers
             }
         }
 
+        // === Delete ===
+
         /// <summary>
-        /// Deletes a customer from the system.
+        /// Deletes a customer from the system by ID.
         /// </summary>
-        /// <param name="userId">ID of the customer to remove</param>
+        /// <param name="userId">The ID of the customer to delete.</param>
         public void DeleteCustomer(int userId)
         {
             User customer = _users.Find(u => u.UserId == userId);
@@ -72,35 +83,43 @@ namespace BankApp.Gui.Controllers
             }
         }
 
+        // === Search ===
+
         /// <summary>
-        /// Searches for a customer by name.
+        /// Searches users by first or last name (case-insensitive).
         /// </summary>
-        /// <param name="name">Name of the customer to search</param>
-        /// <returns>List of customers matching the search query</returns>
+        /// <param name="name">The name to search for.</param>
+        /// <returns>A list of matching users.</returns>
         public List<User> SearchCustomer(string name)
         {
-            List<User> matchingUsers = _users.FindAll(u => u.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase) || 
-                                                          u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase));
+            var matches = _users.FindAll(u =>
+                u.FirstName.Contains(name, StringComparison.OrdinalIgnoreCase) ||
+                u.LastName.Contains(name, StringComparison.OrdinalIgnoreCase));
 
-            if (matchingUsers.Count == 0)
+            if (matches.Count == 0)
             {
                 Console.WriteLine("No customers found.");
             }
-            return matchingUsers;
+
+            return matches;
         }
 
+        // === Get By ID ===
+
         /// <summary>
-        /// Retrieves a customer by their ID.
+        /// Gets a user by their ID.
         /// </summary>
-        /// <param name="userId">User ID of the customer</param>
-        /// <returns>The matching User object, or null if not found</returns>
-        public User GetCustomer(int userId)
+        /// <param name="userId">The user's unique ID.</param>
+        /// <returns>The user if found; otherwise, null.</returns>
+        public User? GetCustomer(int userId)
         {
             return _users.Find(u => u.UserId == userId);
         }
 
+        // === Display All ===
+
         /// <summary>
-        /// Displays a list of all customers.
+        /// Writes all customers to the console (for debugging).
         /// </summary>
         public void DisplayCustomers()
         {
